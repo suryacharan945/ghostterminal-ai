@@ -104,6 +104,9 @@ Part 2 of GhostTerminal AI establishes a genuine, 100% offline, local open-weigh
 
 ## 6. Test Suite Execution & Results
 
+- **Remote Commit SHA**: `f1c1debf1e4698d94490b3d1a049cd05de2974ea` (Verified on GitHub `main`)
+- **GitHub Actions CI Status**: `SUCCESS` (Run ID: `40764921246`, all jobs passed: `Backend Tests & Lint` and `Frontend Build & Typecheck`)
+
 ```
 ============================= test session starts =============================
 platform win32 -- Python 3.13.9, pytest-8.3.3
