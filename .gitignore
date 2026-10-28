@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Node / Frontend
+node_modules/
+.pnp
+.pnp.js
+coverage/
+frontend/dist/
+frontend/build/
+*.tsbuildinfo
+.npm
+.eslintcache
+
+# Testing & Caches
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.cache/
+
+# Environment and Secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.cert
+*.crt
+secrets/
+credentials.json
+
+# Model Weights & Checkpoints (CRITICAL - No weights in git)
+models/
+*.gguf
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+model_cache/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# IDE / Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

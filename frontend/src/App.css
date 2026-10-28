@@ -1,0 +1,194 @@
+.terminal-window {
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  background-color: #0f141c;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(138, 43, 226, 0.15);
+  overflow: hidden;
+}
+
+.terminal-header {
+  background-color: #1a202c;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #2d3748;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.btn-dot.red { background-color: #ff5f56; }
+.btn-dot.yellow { background-color: #ffbd2e; }
+.btn-dot.green { background-color: #27c93f; }
+
+.terminal-title {
+  font-size: 0.85rem;
+  color: #a0aec0;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.banner {
+  color: #bd93f9;
+  white-space: pre;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  overflow-x: auto;
+}
+
+.intro-section {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed #2d3748;
+  padding-bottom: 1rem;
+}
+
+.intro-section h1 {
+  font-size: 1.35rem;
+  color: #50fa7b;
+  margin-bottom: 0.4rem;
+}
+
+.intro-section p {
+  color: #8be9fd;
+  font-size: 0.9rem;
+}
+
+.status-card {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.status-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.connected {
+  background-color: rgba(39, 201, 63, 0.15);
+  color: #50fa7b;
+  border: 1px solid #50fa7b;
+}
+
+.status-badge.loading {
+  background-color: rgba(255, 189, 46, 0.15);
+  color: #ffb86c;
+  border: 1px solid #ffb86c;
+}
+
+.status-badge.unavailable {
+  background-color: rgba(255, 95, 86, 0.15);
+  color: #ff5555;
+  border: 1px solid #ff5555;
+}
+
+.status-badge.error {
+  background-color: rgba(255, 95, 86, 0.2);
+  color: #ff5555;
+  border: 1px solid #ff5555;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.grid-label {
+  color: #6272a4;
+}
+
+.grid-value {
+  color: #f8f8f2;
+  font-family: monospace;
+}
+
+.error-box {
+  background-color: rgba(255, 85, 85, 0.1);
+  border-left: 3px solid #ff5555;
+  padding: 0.6rem 0.8rem;
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: #ffb86c;
+}
+
+.stage-preview {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #12171f;
+  border: 1px solid #282f3a;
+  border-radius: 6px;
+}
+
+.stage-preview h3 {
+  font-size: 0.95rem;
+  color: #ff79c6;
+  margin-bottom: 0.5rem;
+}
+
+.stage-preview ul {
+  list-style-type: none;
+  font-size: 0.85rem;
+  color: #f1fa8c;
+}
+
+.stage-preview li {
+  margin-bottom: 0.3rem;
+}
+
+.action-bar {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.retry-btn {
+  background: #bd93f9;
+  color: #282a36;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.85rem;
+  transition: opacity 0.2s;
+}
+
+.retry-btn:hover {
+  opacity: 0.85;
+}
+
+.retry-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
