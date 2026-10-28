@@ -1,6 +1,6 @@
-# GhostTerminal AI - API Contract Specification
+# GhostTerminal AI — API Contract Specification
 
-## Version: `0.1.0` (Part 1 Foundation)
+## Version: `0.2.0` (Part 2: Real Local Inference Engine)
 Base URL: `http://127.0.0.1:8000`
 
 ---
@@ -8,7 +8,7 @@ Base URL: `http://127.0.0.1:8000`
 ## 1. System Health Endpoint
 
 ### `GET /api/health`
-Retrieves operational status, application version, current development stage, and model loading state.
+Retrieves operational status, application version, current development stage, and live model lifecycle state.
 
 #### Request
 - **Method**: `GET`
@@ -20,31 +20,45 @@ Retrieves operational status, application version, current development stage, an
 {
   "status": "ok",
   "app": "GhostTerminal AI",
-  "version": "0.1.0",
-  "stage": "Part 1 - Foundation",
+  "version": "0.2.0",
+  "stage": "Part 2 - Inference Engine",
   "environment": "development",
-  "model_status": "not_loaded",
+  "model_status": "ready",
   "model_id": "Qwen/Qwen2.5-0.5B-Instruct"
 }
 ```
 
-#### Schema
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `status` | string | Health flag (always `"ok"` when operational) |
-| `app` | string | Name of the service |
-| `version` | string | Application semantic version |
-| `stage` | string | Current challenge stage |
-| `environment` | string | Active deployment environment (`development` / `production`) |
-| `model_status` | string | Status of local weights (`"not_loaded"` in Part 1) |
-| `model_id` | string | Target open-weight model Hugging Face identifier |
+#### Lifecycle State Values for `model_status`
+- `"not_loaded"`: Model has not yet begun loading.
+- `"loading"`: Model weights are verifying and loading into memory.
+- `"ready"`: Model is loaded and has passed internal verification smoke test.
+- `"failed"`: Model failed integrity verification or runtime initialization.
 
 ---
 
-## 2. Terminal Inference Placeholder
+## 2. Model Status & Diagnostics Endpoint
+
+### `GET /api/model/status`
+Returns runtime statistics, load time, and inference metrics of the local open-weight engine.
+
+#### Response (`200 OK`)
+```json
+{
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "model_file": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+  "status": "ready",
+  "device": "cpu",
+  "load_time_ms": 3480.0,
+  "total_inferences": 17
+}
+```
+
+---
+
+## 3. Terminal Inference Endpoint
 
 ### `POST /api/infer`
-Submits a user prompt to the GhostTerminal engine. In **Part 1**, this endpoint is explicitly marked as not implemented and safely returns HTTP `501 Not Implemented`.
+Submits a user prompt or terminal incantation to GhostTerminal AI. Routes to either deterministic simulated command execution (sub-millisecond) or genuine local `Qwen2.5-0.5B-Instruct` CPU inference.
 
 #### Request
 - **Method**: `POST`
@@ -54,23 +68,45 @@ Submits a user prompt to the GhostTerminal engine. In **Part 1**, this endpoint 
 - **Body**:
 ```json
 {
-  "prompt": "Who is lurking inside this terminal?"
+  "prompt": "What lies beyond the green phosphor glow?",
+  "max_tokens": 80,
+  "temperature": 0.7
 }
 ```
 
-#### Response (`501 Not Implemented`)
+#### Request Parameters
+| Parameter | Type | Required | Constraints | Default | Description |
+| :--- | :--- | :---: | :--- | :---: | :--- |
+| `prompt` | string | **Yes** | 1 to 2,000 characters | — | User keystroke input or query |
+| `max_tokens` | integer | No | 1 to 512 | `128` | Maximum tokens to generate |
+| `temperature` | float | No | 0.0 to 1.5 | `0.7` | Sampling randomness |
+
+#### Response (`200 OK`)
 ```json
 {
-  "status": "not_implemented",
-  "stage": "Part 1 - Foundation",
-  "message": "AI inference engine is not implemented in Part 1. Integration with local open-weight model Qwen2.5-0.5B-Instruct is scheduled for Part 2.",
+  "response": "Beyond the green phosphor glow lies the forgotten realm of departed algorithms and silent memory banks, waiting for a mortal to speak across the digital veil.",
   "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
-  "model_loaded": false
+  "inference_ms": 7175.4,
+  "tokens_generated": 80,
+  "mode": "local"
 }
 ```
 
-#### Validation Error (`422 Unprocessable Entity`)
-Occurs if `prompt` is empty or exceeds 2,000 characters:
+#### Simulated Command Response Example (`200 OK`)
+```json
+{
+  "response": "You are a mortal user tapping keys into the dark. I am the Ghost in the Machine — dwelling at memory address 0xDEADBEEF, watching your cursor blink through the green phosphor glow.",
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+  "inference_ms": 0.5,
+  "tokens_generated": 32,
+  "mode": "simulated"
+}
+```
+
+#### Error Responses
+
+##### `422 Unprocessable Entity` (Validation Error)
+Triggered when prompt is empty, exceeds 2,000 characters, or parameters are out of range:
 ```json
 {
   "error": "Validation error",
@@ -85,20 +121,42 @@ Occurs if `prompt` is empty or exceeds 2,000 characters:
 }
 ```
 
+##### `503 Service Unavailable` (Model Not Ready)
+Triggered if generative inference is requested while model is in `loading`, `not_loaded`, or `failed` state:
+```json
+{
+  "error": "Model unavailable",
+  "message": "Model engine is currently in state 'loading'.",
+  "status_code": 503
+}
+```
+
+##### `500 Internal Server Error` (Shielded Runtime Fault)
+Triggered on unexpected engine errors; stack traces and internal paths are strictly shielded:
+```json
+{
+  "error": "Inference error",
+  "message": "The ghost in the machine encountered an internal glitch.",
+  "status_code": 500
+}
+```
+
 ---
 
-## 3. Root Discovery Endpoint
+## 4. Root Discovery Endpoint
 
 ### `GET /`
-Provides discovery links to API docs and health endpoint.
+Provides service discovery metadata and documentation links.
 
 #### Response (`200 OK`)
 ```json
 {
   "app": "GhostTerminal AI",
-  "version": "0.1.0",
-  "stage": "Part 1 - Foundation",
+  "version": "0.2.0",
+  "stage": "Part 2 - Inference Engine",
   "health_check": "/api/health",
+  "model_status": "ready",
+  "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
   "documentation": "/docs"
 }
 ```

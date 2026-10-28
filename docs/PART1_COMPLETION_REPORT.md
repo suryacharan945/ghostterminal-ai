@@ -80,7 +80,7 @@ ghostterminal-ai/
 │   │   ├── main.tsx             # React bootstrap
 │   │   └── types.ts             # Health and connection TypeScript interfaces
 │   ├── index.html
-│   ├── package.json             # Minimal dependencies (React 18, Vite 8/esbuild)
+│   ├── package.json             # Minimal dependencies (React 18, Vite 5.4.14, TS 5)
 │   ├── package-lock.json        # Deterministic dependency tree
 │   ├── tsconfig.json
 │   ├── tsconfig.node.json

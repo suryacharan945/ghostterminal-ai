@@ -16,8 +16,8 @@ class Settings(BaseSettings):
     )
 
     app_name: str = "GhostTerminal AI"
-    app_version: str = "0.1.0"
-    stage: str = "Part 1 - Foundation"
+    app_version: str = "0.2.0"
+    stage: str = "Part 2 - Inference Engine"
     environment: str = "development"
     host: str = "127.0.0.1"
     port: int = 8000
@@ -26,10 +26,15 @@ class Settings(BaseSettings):
         "http://127.0.0.1:5173",
     ]
 
-    # Model metadata (Part 2 preview - no weights loaded in Part 1)
+    # Model settings
     model_id: str = "Qwen/Qwen2.5-0.5B-Instruct"
+    model_file: str = "qwen2.5-0.5b-instruct-q4_k_m.gguf"
+    model_dir: str = "models"
     model_device: str = "cpu"
-    model_loaded: bool = False
+    model_autoload: bool = True
+    max_tokens_limit: int = 512
+    default_max_tokens: int = 128
+    default_temperature: float = 0.7
 
     @field_validator("cors_origins", mode="before")
     @classmethod

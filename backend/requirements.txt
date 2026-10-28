@@ -1,5 +1,7 @@
-# GhostTerminal AI - Backend Core Dependencies
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
 fastapi==0.115.4
 uvicorn[standard]==0.32.0
 pydantic==2.9.2
 pydantic-settings==2.6.1
+numpy>=2.0.0
+llama-cpp-python==0.3.36
