@@ -17,8 +17,8 @@ Developed for **Hacktoberfest 2026 DEV Challenge: Week 4 (October 26 – October
 - [x] **Part 1: Clean Foundation** — Repository, typed FastAPI backend, React + Vite frontend scaffolding, CI pipeline, security guidelines.
 - [x] **Part 2: Real AI Inference Engine** — Genuine local open-weight CPU inference via `llama-cpp-python` and `Qwen2.5-0.5B-Instruct` (Q4_K_M GGUF), haunted persona, deterministic command handling, 23 automated tests, and empirical performance benchmarks.
 - [x] **Part 3: Premium Interactive Haunted Terminal** — Phosphor green CRT aesthetic, scanline overlays, suggested incantations, command history ring buffer, Web Audio synthesis, settings/help modals, 29 Vitest tests, and automated high-fidelity UI screenshots.
-- [x] **Part 4: Final Integration, Security, QA & Demo (Current)** — All 12 end-to-end user journeys validated against real local Qwen model on CPU, security audit and threat modeling, accessibility verification, release checklist, and 120-second demo walkthrough script.
-- [ ] *Part 5 (Next)*: Final production packaging, showcase walkthrough, and DEV Challenge community article.
+- [x] **Part 4: Final Integration, Security, QA & Demo** — All 12 end-to-end user journeys validated against real local Qwen model on CPU, security audit and threat modeling, accessibility verification, release checklist, and 120-second demo walkthrough script.
+- [x] **Part 5: Final Hacktoberfest Submission (Current)** — Publication-ready DEV Community article draft ([`DEV_SUBMISSION_DRAFT.md`](docs/DEV_SUBMISSION_DRAFT.md)), official challenge compliance checklist, public demo asset manifest, and complete 5-part engineering summary.
 
 ---
 
@@ -66,6 +66,10 @@ ghostterminal-ai/
 │   ├── SECURITY_REVIEW.md
 │   ├── DEMO_SCRIPT.md
 │   ├── RELEASE_CHECKLIST.md
+│   ├── DEV_SUBMISSION_DRAFT.md
+│   ├── DEV_SUBMISSION_CHECKLIST.md
+│   ├── DEMO_ASSET_MANIFEST.md
+│   ├── FINAL_PROJECT_SUMMARY.md
 │   ├── PART1_COMPLETION_REPORT.md
 │   ├── PART2_COMPLETION_REPORT.md
 │   ├── PART3_COMPLETION_REPORT.md
@@ -76,6 +80,10 @@ ghostterminal-ai/
 └── LICENSE             # MIT License
 ```
 
+For the publication-ready DEV Community article, see [DEV_SUBMISSION_DRAFT.md](docs/DEV_SUBMISSION_DRAFT.md).  
+For the challenge compliance checklist, see [DEV_SUBMISSION_CHECKLIST.md](docs/DEV_SUBMISSION_CHECKLIST.md).  
+For the complete 5-part engineering summary, see [FINAL_PROJECT_SUMMARY.md](docs/FINAL_PROJECT_SUMMARY.md).  
+For public screenshot and demo links, see [DEMO_ASSET_MANIFEST.md](docs/DEMO_ASSET_MANIFEST.md).  
 For complete architectural design, see [ARCHITECTURE.md](docs/ARCHITECTURE.md).  
 For the QA test matrix across all 12 journeys, see [FINAL_QA_REPORT.md](docs/FINAL_QA_REPORT.md).  
 For threat modeling and security analysis, see [SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md).  
