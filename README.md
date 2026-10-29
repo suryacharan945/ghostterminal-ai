@@ -5,8 +5,12 @@
 [![Python 3.12%20|%203.13](https://img.shields.io/badge/Python-3.12%20%7C%203.13-blue.svg)](https://www.python.org/)
 [![Model: Qwen2.5-0.5B-Instruct](https://img.shields.io/badge/Model-Qwen2.5--0.5B--Instruct-purple.svg)](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF)
 [![Hacktoberfest 2026](https://img.shields.io/badge/Hacktoberfest-2026%20Week%204-ff79c6.svg)](https://dev.to/challenges/hacktoberfest-week4-2026-10-26)
+[![DEV Post](https://img.shields.io/badge/DEV_Post-Published-0a0a0a.svg?logo=devdotto)](https://dev.to/surya_charan_945/ghostterminal-ai-a-haunted-terminal-powered-by-local-open-weight-ai-15g0)
 
 > **"Ghost in the Machine"** — An original Halloween-themed AI terminal driven by genuine local open-weight language model intelligence, running 100% offline without third-party cloud API subscriptions or external telemetry.
+>
+> 🎃 **Official Hacktoberfest 2026 Week 4 Submission:**  
+> **DEV Community Article:** [**GhostTerminal AI: A Haunted Terminal Powered by Local Open-Weight AI 👻**](https://dev.to/surya_charan_945/ghostterminal-ai-a-haunted-terminal-powered-by-local-open-weight-ai-15g0)
 
 Developed for **Hacktoberfest 2026 DEV Challenge: Week 4 (October 26 – October 31, 2026)**.
 
@@ -18,7 +22,7 @@ Developed for **Hacktoberfest 2026 DEV Challenge: Week 4 (October 26 – October
 - [x] **Part 2: Real AI Inference Engine** — Genuine local open-weight CPU inference via `llama-cpp-python` and `Qwen2.5-0.5B-Instruct` (Q4_K_M GGUF), haunted persona, deterministic command handling, 23 automated tests, and empirical performance benchmarks.
 - [x] **Part 3: Premium Interactive Haunted Terminal** — Phosphor green CRT aesthetic, scanline overlays, suggested incantations, command history ring buffer, Web Audio synthesis, settings/help modals, 29 Vitest tests, and automated high-fidelity UI screenshots.
 - [x] **Part 4: Final Integration, Security, QA & Demo** — All 12 end-to-end user journeys validated against real local Qwen model on CPU, security audit and threat modeling, accessibility verification, release checklist, and 120-second demo walkthrough script.
-- [x] **Part 5: Final Hacktoberfest Submission (Current)** — Publication-ready DEV Community article draft ([`DEV_SUBMISSION_DRAFT.md`](docs/DEV_SUBMISSION_DRAFT.md)), official challenge compliance checklist, public demo asset manifest, and complete 5-part engineering summary.
+- [x] **Part 5: Final Hacktoberfest Submission (Published & Verified)** — Officially submitted to DEV Community: [**Read the Full Submission Article**](https://dev.to/surya_charan_945/ghostterminal-ai-a-haunted-terminal-powered-by-local-open-weight-ai-15g0) 🎃
 
 ---
 
