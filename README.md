@@ -16,9 +16,9 @@ Developed for **Hacktoberfest 2026 DEV Challenge: Week 4 (October 26 – October
 
 - [x] **Part 1: Clean Foundation** — Repository, typed FastAPI backend, React + Vite frontend scaffolding, CI pipeline, security guidelines.
 - [x] **Part 2: Real AI Inference Engine** — Genuine local open-weight CPU inference via `llama-cpp-python` and `Qwen2.5-0.5B-Instruct` (Q4_K_M GGUF), haunted persona, deterministic command handling, 23 automated tests, and empirical performance benchmarks.
-- [x] **Part 3: Premium Interactive Haunted Terminal (Current)** — Phosphor green CRT aesthetic, scanline overlays, suggested incantations, command history ring buffer, Web Audio synthesis, settings/help modals, 29 Vitest tests, and automated high-fidelity UI screenshots.
-- [ ] *Part 4 (Next)*: Sandboxed pseudo-terminal command execution and interactive ghost sessions.
-- [ ] *Part 5*: Final optimizations, showcase walkthrough, and DEV publication.
+- [x] **Part 3: Premium Interactive Haunted Terminal** — Phosphor green CRT aesthetic, scanline overlays, suggested incantations, command history ring buffer, Web Audio synthesis, settings/help modals, 29 Vitest tests, and automated high-fidelity UI screenshots.
+- [x] **Part 4: Final Integration, Security, QA & Demo (Current)** — All 12 end-to-end user journeys validated against real local Qwen model on CPU, security audit and threat modeling, accessibility verification, release checklist, and 120-second demo walkthrough script.
+- [ ] *Part 5 (Next)*: Final production packaging, showcase walkthrough, and DEV Challenge community article.
 
 ---
 
@@ -62,19 +62,28 @@ ghostterminal-ai/
 │   ├── AI_EVALUATION.md
 │   ├── UI_DESIGN_SYSTEM.md
 │   ├── UI_TEST_RESULTS.md
+│   ├── FINAL_QA_REPORT.md
+│   ├── SECURITY_REVIEW.md
+│   ├── DEMO_SCRIPT.md
+│   ├── RELEASE_CHECKLIST.md
 │   ├── PART1_COMPLETION_REPORT.md
 │   ├── PART2_COMPLETION_REPORT.md
 │   ├── PART3_COMPLETION_REPORT.md
+│   ├── PART4_COMPLETION_REPORT.md
+│   ├── demo/           # E2E journey evidence and demo captures
 │   └── screenshots/    # High-fidelity visual captures
 ├── tests/              # 23 automated pytest tests (unit + integration + persona)
 └── LICENSE             # MIT License
 ```
 
 For complete architectural design, see [ARCHITECTURE.md](docs/ARCHITECTURE.md).  
-For the UI design system and component breakdown, see [UI_DESIGN_SYSTEM.md](docs/UI_DESIGN_SYSTEM.md).  
-For the UI test suite and accessibility verification, see [UI_TEST_RESULTS.md](docs/UI_TEST_RESULTS.md).  
-For the Part 3 completion summary, see [PART3_COMPLETION_REPORT.md](docs/PART3_COMPLETION_REPORT.md).  
-For the API specifications and schemas, see [API_CONTRACT.md](docs/API_CONTRACT.md).  
+For the QA test matrix across all 12 journeys, see [FINAL_QA_REPORT.md](docs/FINAL_QA_REPORT.md).  
+For threat modeling and security analysis, see [SECURITY_REVIEW.md](docs/SECURITY_REVIEW.md).  
+For the 120-second demo script and walkthrough, see [DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md).  
+For the release candidate verification checklist, see [RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md).  
+For the Part 4 completion deliverable, see [PART4_COMPLETION_REPORT.md](docs/PART4_COMPLETION_REPORT.md).  
+For UI design system tokens, see [UI_DESIGN_SYSTEM.md](docs/UI_DESIGN_SYSTEM.md).  
+For the UI test suite results, see [UI_TEST_RESULTS.md](docs/UI_TEST_RESULTS.md).  
 For empirical hardware latency and throughput, see [INFERENCE_BENCHMARK.md](docs/INFERENCE_BENCHMARK.md).  
 For persona safety and prompt evaluations, see [AI_EVALUATION.md](docs/AI_EVALUATION.md).
 
@@ -157,3 +166,23 @@ GhostTerminal AI features a hybrid architecture combining **deterministic simula
 2. **Absolute Host Isolation**: No shell execution (`os.system`, `subprocess`, shell pipes) is connected to terminal inputs.
 3. **Cryptographic Integrity**: Model weights are checked against Git LFS SHA-256 (`74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db`).
 4. **Permissive Licensing**: Source code under [MIT](LICENSE); model weights under [Apache 2.0](docs/MODEL_SELECTION.md).
+
+---
+
+## 🎬 Demo Walkthrough & Presentation
+
+A timed 120-second walkthrough script is available in [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md).  
+To run the automated 12-journey validation suite and capture verification screenshots:
+
+```powershell
+# Execute the full end-to-end journey validation
+.venv\Scripts\python scripts\e2e_journey_validation.py
+```
+
+Machine-readable execution telemetry is stored in [docs/demo/e2e_journey_evidence.json](docs/demo/e2e_journey_evidence.json).
+
+---
+
+## 🤝 Acknowledgments & AI Assistance
+
+GhostTerminal AI was developed with the assistance of **Google Antigravity**, an agentic AI pair programming assistant, for test design, architecture drafting, documentation generation, and headless verification automation. All code and local model inference logic have been authored, verified, and benchmarked on local consumer hardware.

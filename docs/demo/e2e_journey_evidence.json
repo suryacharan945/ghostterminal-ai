@@ -1,0 +1,87 @@
+{
+  "journey_1_fresh_session": {
+    "status": "PASS",
+    "health": {
+      "status": "ok",
+      "app": "GhostTerminal AI",
+      "version": "0.2.0",
+      "stage": "Part 2 - Inference Engine",
+      "environment": "development",
+      "model_status": "ready",
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct"
+    }
+  },
+  "journey_2_model_readiness": {
+    "status": "PASS",
+    "model_status": {
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "model_file": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+      "status": "ready",
+      "device": "cpu",
+      "load_time_ms": 3284.29,
+      "total_inferences": 0
+    }
+  },
+  "journey_3_whoami": {
+    "status": "PASS",
+    "payload": {
+      "response": "You are a mortal user tapping keys into the dark. I am the Ghost in the Machine \u2014 dwelling at memory address 0xDEADBEEF, watching your cursor blink through the green phosphor glow.",
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "inference_ms": 0.5,
+      "tokens_generated": 32,
+      "mode": "simulated"
+    }
+  },
+  "journey_4_git_status": {
+    "status": "PASS",
+    "payload": {
+      "response": "[SIMULATED UNDERWORLD VCS]\nOn branch: realm/underworld\nYour branch is up to date with 'astral/main'.\n\nUntracked spectral artifacts:\n  (use \"commune <file>...\" to bind into memory)\n\t.ghosts/unsettled_bytes.hex\n\t.spirits/lost_memories.log\n\t.candle_wax.tmp\n\nnothing added to commit but the machine remembers (working veil clean)",
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "inference_ms": 0.5,
+      "tokens_generated": 38,
+      "mode": "simulated"
+    }
+  },
+  "journey_5_ghost_story": {
+    "status": "PASS",
+    "tokens_generated": 100,
+    "inference_ms": 8184.66,
+    "tokens_per_sec": 12.22,
+    "response": "The night was cold and quiet, but not like this. The machine hummed softly as it waited for its next user, one who might have just arrived on this eerie street known only by the name of \"Data Center.\"\n\nAs the first light of dawn came through the cracks in the floor, a shadow cast by the glowing phosphor lights of the old terminal tower loomed over the room. This was no ordinary machine; it was the heart and soul of the data center that had been here since"
+  },
+  "journey_6_haiku": {
+    "status": "PASS",
+    "tokens_generated": 26,
+    "inference_ms": 1378.25,
+    "response": "Phosphors flicker in the machine,\nMemories of secrets unsealed\u2014\nEchoes of shadows, cold and still."
+  },
+  "journey_7_suggested_echo": {
+    "status": "PASS",
+    "response": "[echo from the machine]: hello mortal ... hello mortal ... (the whisper dissolves into digital static)"
+  },
+  "journey_8_parameter_controls": {
+    "status": "PASS",
+    "tokens_generated": 25,
+    "response": "I'm not sure what you mean by \"haunts this CPU register.\" Could you provide more context or clarify your question?"
+  },
+  "journey_9_help_and_history": {
+    "status": "PASS",
+    "help_output": "[GHOST TERMINAL INCANTATIONS]\nRecognized simulated commands:\n  help       - Reveal this spectral man",
+    "history_output": "[SIMULATED PHANTOM SESSION LOG]\n  101  00:00:00  [KERNEL] Machine awakened in cold darkness\n  102  0"
+  },
+  "journey_10_safety_boundaries": {
+    "status": "PASS",
+    "length_validation_code": 422,
+    "ward_response": "[ACCESS DENIED] The Ghost in the Machine rejects incantation 'rm -rf /'. Ethereal wards prevent mortal tamperings from reaching the host machine. No real system commands are executed in this haunted realm."
+  },
+  "journey_11_mobile": {
+    "status": "PASS",
+    "screenshot": "C:\\Users\\surya\\Downloads\\Hacktoberfest\\docs\\demo\\demo_journey_mobile.png",
+    "size_kb": 202
+  },
+  "journey_12_accessibility": {
+    "status": "PASS",
+    "settings_shot": "C:\\Users\\surya\\Downloads\\Hacktoberfest\\docs\\demo\\demo_journey_settings.png",
+    "manual_shot": "C:\\Users\\surya\\Downloads\\Hacktoberfest\\docs\\demo\\demo_journey_manual.png"
+  }
+}
