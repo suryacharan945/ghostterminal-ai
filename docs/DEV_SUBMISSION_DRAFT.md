@@ -1,10 +1,9 @@
 ---
 title: "GhostTerminal AI: A Haunted Terminal Powered by Local Open-Weight AI 👻"
 published: false
-description: "An interactive retro CRT terminal haunted by a digital ghost, running 100% offline on consumer CPU hardware using open-weight Qwen2.5-0.5B-Instruct."
+description: "An interactive retro CRT terminal haunted by a digital ghost, running local AI inference on consumer CPU hardware using open-weight Qwen2.5-0.5B-Instruct."
 tags: devchallenge, hf26challenge, opensource, ai
 cover_image: https://raw.githubusercontent.com/suryacharan945/ghostterminal-ai/main/docs/screenshots/01_desktop_terminal.png
-canonical_url: https://github.com/suryacharan945/ghostterminal-ai
 ---
 
 This is a submission for the Hacktoberfest Open-Source AI Challenge Week 4: Ghost in the Machine.
@@ -19,7 +18,7 @@ When you boot the terminal, you aren't greeting a standard chatbot. You are ente
 
 GhostTerminal AI features a **hybrid execution architecture**:
 1. **Deterministic Fast Path:** Common terminal incantations (`whoami`, `help`, `history`, `git status`, `echo`) execute instantaneously in sub-millisecond time, delivering atmospheric simulated responses without touching the host operating system.
-2. **Local Open-Weight Generative Path:** Freeform questions, riddles, ghost stories, and haunted poetry query the local 4-bit quantized Qwen model on CPU, streaming supernatural commentary back into your browser.
+2. **Local Open-Weight Generative Path:** Freeform questions, riddles, ghost stories, and haunted poetry query the local 4-bit quantized Qwen model on CPU, delivering supernatural commentary with typewriter-style playback of completed local AI responses in your browser.
 
 ```
                       GHOSTTERMINAL AI ARCHITECTURE
@@ -34,8 +33,8 @@ GhostTerminal AI features a **hybrid execution architecture**:
   │          │           (Mechanical Clicks & Chimes) │              │
   └──────────┼──────────────────┼─────────────────────┼──────────────┘
              │                  │                     │
-             │ HTTP GET         │ JSON Telemetry      │ HTTP POST
-             │ /api/health      │ Stream / Typewriter │ /api/infer
+             │ HTTP GET         │ JSON Response       │ HTTP POST
+             │ /api/health      │ Typewriter Playback │ /api/infer
              ▼                  │                     ▼
   ┌─────────────────────────────┴────────────────────────────────────┐
   │                 FastAPI Backend Service (Python 3.13)            │
@@ -78,7 +77,7 @@ The green phosphor console greets the mortal user, showing real-time connectivit
 ![Desktop Terminal View](https://raw.githubusercontent.com/suryacharan945/ghostterminal-ai/main/docs/screenshots/01_desktop_terminal.png)
 
 ### 2. Live Local AI Generation & Telemetry
-When asked to tell a ghost story about an abandoned server, the local Qwen model awakens on CPU. The response displays wall-clock latency (`⏱ 1240.2 ms`), token count (`⚡ 78 tok`), and an authentic `LOCAL AI` badge:
+When asked to tell a ghost story about an abandoned server, the local Qwen model awakens on CPU. The response displays the recorded inference metrics (in the captured terminal session: 78 tokens generated, `LOCAL AI` badge) alongside real-time latency telemetry:
 
 ![Local AI Generation](https://raw.githubusercontent.com/suryacharan945/ghostterminal-ai/main/docs/screenshots/02_ai_generation.png)
 
@@ -173,9 +172,9 @@ GhostTerminal AI was architected from the ground up to be lightweight, reproduci
 
 In a landscape increasingly dominated by black-box cloud APIs, GhostTerminal AI demonstrates why **open-source AI and data sovereignty are vital**:
 
-1. **Zero Telemetry & Absolute Privacy:** When you type into GhostTerminal AI, not a single byte of text or metadata leaves your computer. Your thoughts, experiments, and prompts remain entirely in your local RAM.
+1. **Local Privacy & Independence:** GhostTerminal AI performs language-model inference locally on the user's machine, without sending prompts to a hosted model API. Initial model downloads and optional external services still require network access. Your prompts, session thoughts, and generated incantations remain on your local machine.
 2. **No Paywalls or API Keys:** You never need to enter a credit card, sign up for a cloud account, or worry about rate limits or surprise billing. The intelligence is truly yours.
-3. **Resilience & Offline Independence:** The terminal functions identically whether you are connected to high-speed internet, flying on an airplane, or off the grid.
+3. **Resilience & Offline Independence:** After the initial model weight download, the terminal functions identically whether you are connected to high-speed internet, flying on an airplane, or off the grid.
 4. **Open Weights vs. Fully Open-Source AI:** It is important to distinguish open-weight models from fully open-source AI. `Qwen2.5-0.5B-Instruct` is distributed under a permissive **Apache 2.0 license**, granting the freedom to inspect, redistribute, and deploy the model weights locally without commercial royalties. While the complete training dataset and pipeline remain proprietary to its creators, open weights give developers the power to run, quantize, and fine-tune models on their own hardware.
 
 ---
@@ -194,13 +193,14 @@ Building a local AI terminal on consumer hardware presented several real-world e
 
 Every claim in this submission is backed by automated tests and empirical benchmarks:
 
+- **Hardware & Environment:** Intel 12-core CPU (Intel64 Family 6 Model 186, Windows 11 64-bit), AVX2 C++ runtime via `llama.dll`.
 - **Backend Pytest Suite:** **23 of 23 passed** (`tests/test_health.py`, `tests/test_inference_integration.py`, `tests/test_inference_unit.py`, `tests/test_persona.py`).
 - **Frontend Vitest Suite:** **29 of 29 passed** (`api.test.ts`, `sound.test.ts`, `Terminal.test.tsx`, `App.test.tsx`).
 - **End-to-End User Journeys:** **12 of 12 journeys passed** via `scripts/e2e_journey_validation.py`.
-- **Model Cold-Start Latency:** **3.14 seconds** on CPU.
-- **CPU Generation Throughput:** **12.22 tokens/second** sustained.
+- **Model Cold-Start Latency:** **~3.14 to 3.48 seconds** on CPU (one-time weight loading into RAM).
+- **CPU Generation Throughput:** Sustained **~9.7 to 12.2 tokens/second** (average 9.70 tok/s across full generative benchmark suite; peak 13.96 tok/s; 12.22 tok/s on 100-token story).
 - **Peak RAM Footprint:** **597.8 MB** (well under the 1.5 GB budget).
-- **Simulated Command Latency:** **0.50 ms**.
+- **Simulated Command Latency:** **0.50 ms** (sub-millisecond deterministic fast path).
 - **Frontend Production Bundle:** **172.9 KB JS (54.5 KB gzip)**, **17.3 KB CSS (4.1 KB gzip)**.
 
 ---
