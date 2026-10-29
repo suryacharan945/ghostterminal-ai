@@ -1,4 +1,4 @@
-name: GhostTerminal AI Foundation CI
+name: GhostTerminal AI CI
 
 on:
   push:
@@ -54,6 +54,11 @@ jobs:
         working-directory: frontend
         run: |
           npm run typecheck
+
+      - name: Run Vitest unit tests
+        working-directory: frontend
+        run: |
+          npm test
 
       - name: Build frontend
         working-directory: frontend

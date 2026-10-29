@@ -15,10 +15,26 @@ Developed for **Hacktoberfest 2026 DEV Challenge: Week 4 (October 26 – October
 ## 🧭 Project Roadmap & Status
 
 - [x] **Part 1: Clean Foundation** — Repository, typed FastAPI backend, React + Vite frontend scaffolding, CI pipeline, security guidelines.
-- [x] **Part 2: Real AI Inference Engine (Current)** — Genuine local open-weight CPU inference via `llama-cpp-python` and `Qwen2.5-0.5B-Instruct` (Q4_K_M GGUF), haunted persona, deterministic command handling, 23 automated tests, and empirical performance benchmarks.
-- [ ] *Part 3 (Next)*: Haunted CRT visual atmosphere, scanlines, teletype animations, and audio effects.
-- [ ] *Part 4*: Sandboxed pseudo-terminal command execution and interactive ghost sessions.
+- [x] **Part 2: Real AI Inference Engine** — Genuine local open-weight CPU inference via `llama-cpp-python` and `Qwen2.5-0.5B-Instruct` (Q4_K_M GGUF), haunted persona, deterministic command handling, 23 automated tests, and empirical performance benchmarks.
+- [x] **Part 3: Premium Interactive Haunted Terminal (Current)** — Phosphor green CRT aesthetic, scanline overlays, suggested incantations, command history ring buffer, Web Audio synthesis, settings/help modals, 29 Vitest tests, and automated high-fidelity UI screenshots.
+- [ ] *Part 4 (Next)*: Sandboxed pseudo-terminal command execution and interactive ghost sessions.
 - [ ] *Part 5*: Final optimizations, showcase walkthrough, and DEV publication.
+
+---
+
+## 📸 Interactive Terminal Interface
+
+| Desktop Terminal View | Local AI Inference Generation |
+| :---: | :---: |
+| ![Desktop Terminal](docs/screenshots/01_desktop_terminal.png) | ![Local AI Generation](docs/screenshots/02_ai_generation.png) |
+
+| Deterministic Command Execution | Responsive Mobile Viewport |
+| :---: | :---: |
+| ![Simulated Command](docs/screenshots/03_simulated_command.png) | ![Mobile Viewport](docs/screenshots/04_mobile_terminal.png) |
+
+| Terminal Configurations Modal | Spectral Manual & Guide |
+| :---: | :---: |
+| ![Settings Modal](docs/screenshots/05_settings_and_status.png) | ![Help Manual](docs/screenshots/06_spectral_manual.png) |
 
 ---
 
@@ -44,12 +60,20 @@ ghostterminal-ai/
 │   ├── API_CONTRACT.md
 │   ├── INFERENCE_BENCHMARK.md
 │   ├── AI_EVALUATION.md
-│   └── PART2_COMPLETION_REPORT.md
+│   ├── UI_DESIGN_SYSTEM.md
+│   ├── UI_TEST_RESULTS.md
+│   ├── PART1_COMPLETION_REPORT.md
+│   ├── PART2_COMPLETION_REPORT.md
+│   ├── PART3_COMPLETION_REPORT.md
+│   └── screenshots/    # High-fidelity visual captures
 ├── tests/              # 23 automated pytest tests (unit + integration + persona)
 └── LICENSE             # MIT License
 ```
 
 For complete architectural design, see [ARCHITECTURE.md](docs/ARCHITECTURE.md).  
+For the UI design system and component breakdown, see [UI_DESIGN_SYSTEM.md](docs/UI_DESIGN_SYSTEM.md).  
+For the UI test suite and accessibility verification, see [UI_TEST_RESULTS.md](docs/UI_TEST_RESULTS.md).  
+For the Part 3 completion summary, see [PART3_COMPLETION_REPORT.md](docs/PART3_COMPLETION_REPORT.md).  
 For the API specifications and schemas, see [API_CONTRACT.md](docs/API_CONTRACT.md).  
 For empirical hardware latency and throughput, see [INFERENCE_BENCHMARK.md](docs/INFERENCE_BENCHMARK.md).  
 For persona safety and prompt evaluations, see [AI_EVALUATION.md](docs/AI_EVALUATION.md).
@@ -94,6 +118,7 @@ cd frontend
 npm install
 npm run typecheck
 npm run build
+npm test
 npm run dev
 ```
 Open `http://localhost:5173` in your browser. The landing page probes `http://127.0.0.1:8000/api/health` and displays the live operational status.

@@ -7,9 +7,9 @@ The project embodies the spirit of a haunted terminal possessed by a cryptic spi
 
 ### Development Stages
 - **Part 1: Clean Foundation** — Completed. FastAPI backend foundation, React + Vite scaffolding, CI pipeline, security guidelines.
-- **Part 2 (Current): Real Local AI Inference Engine** — Completed. Real local inference with `Qwen2.5-0.5B-Instruct` (Q4_K_M GGUF), `llama-cpp-python` CPU engine, haunted persona system prompt, deterministic simulated commands, 23 automated tests, and empirical CPU benchmarks.
-- **Part 3: Spooky Terminal Experience** — CRT scanline effects, phosphor glow, typing teletype animations, spectral audio effects.
-- **Part 4: Autonomous Terminal Commands** — Sandboxed pseudo-terminal command parsing and haunted system status inspections.
+- **Part 2: Real Local AI Inference Engine** — Completed. Real local inference with `Qwen2.5-0.5B-Instruct` (Q4_K_M GGUF), `llama-cpp-python` CPU engine, haunted persona system prompt, deterministic simulated commands, 23 automated tests, and empirical CPU benchmarks.
+- **Part 3 (Current): Premium Interactive Haunted Terminal** — Completed. CRT scanlines, phosphor glow, suggested incantations, command history ring buffer, Web Audio synthesizer, settings/help modals, 29 Vitest tests, and automated high-fidelity UI screenshots.
+- **Part 4 (Next): Autonomous Terminal Commands** — Sandboxed pseudo-terminal command parsing and haunted system status inspections.
 - **Part 5: Production Packaging & Showcase** — Final performance benchmarking, documentation, and DEV Challenge community article.
 
 ---
@@ -39,27 +39,45 @@ ghostterminal-ai/
 │   └── requirements-dev.txt     # Development/testing dependencies
 ├── frontend/
 │   ├── src/
+│   │   ├── __tests__/           # Vitest unit & integration test suites
+│   │   │   ├── api.test.ts
+│   │   │   ├── App.test.tsx
+│   │   │   ├── sound.test.ts
+│   │   │   └── Terminal.test.tsx
+│   │   ├── components/          # Modular UI components
+│   │   │   ├── Header.tsx       # System title, real-time status pill & modal buttons
+│   │   │   ├── HelpModal.tsx    # Spectral manual and command reference guide
+│   │   │   ├── InputBar.tsx     # Shell prompt, history navigation, character counter
+│   │   │   ├── SettingsModal.tsx# CRT scanlines, audio, speed & model parameter controls
+│   │   │   ├── Suggestions.tsx  # Clickable suggested incantations & commands
+│   │   │   └── Terminal.tsx     # Monospace CRT console, message list, copy buttons
 │   │   ├── api.ts               # Resilient fetch client with abort signal
-│   │   ├── App.css              # Terminal layout styles
-│   │   ├── App.tsx              # Terminal landing view with connection states
-│   │   ├── index.css            # Base dark theme styling
+│   │   ├── App.css              # Responsive CRT layout, scanlines, and glow styles
+│   │   ├── App.tsx              # Central state coordinator & localStorage persistence
+│   │   ├── index.css            # Color palette tokens & dark background
 │   │   ├── main.tsx             # Application bootstrap
+│   │   ├── sound.ts             # Web Audio API mechanical click & chime synthesizer
+│   │   ├── test-setup.ts        # Vitest jsdom polyfills & matchers
 │   │   └── types.ts             # TypeScript definitions
 │   ├── index.html
-│   ├── package.json             # Minimal dependencies (React 18, Vite 5.4.14, TS 5)
+│   ├── package.json             # Pinned dependencies (React 18, Vite 5.4.14, Vitest 2.1.8)
 │   ├── tsconfig.json
 │   ├── tsconfig.node.json
-│   └── vite.config.ts           # Development proxy configuration
+│   └── vite.config.ts           # Development proxy & Vitest jsdom configuration
 ├── models/                      # Gitignored directory storing verified GGUF weights
 │   └── qwen2.5-0.5b-instruct-q4_k_m.gguf
 ├── docs/
+│   ├── screenshots/             # Real automated headless Chrome captures
 │   ├── AI_EVALUATION.md         # 17-prompt evaluation dataset & safety review
 │   ├── API_CONTRACT.md          # OpenAPI / schema definitions
 │   ├── ARCHITECTURE.md          # System architecture and design
 │   ├── INFERENCE_BENCHMARK.md   # Empirical CPU latency & throughput measurements
 │   ├── MODEL_SELECTION.md       # Open-weight model research & evaluation
 │   ├── PART1_COMPLETION_REPORT.md # Part 1 completion deliverable
-│   └── PART2_COMPLETION_REPORT.md # Part 2 completion deliverable
+│   ├── PART2_COMPLETION_REPORT.md # Part 2 completion deliverable
+│   ├── PART3_COMPLETION_REPORT.md # Part 3 completion deliverable
+│   ├── UI_DESIGN_SYSTEM.md      # UI design tokens, CRT simulation & accessibility
+│   └── UI_TEST_RESULTS.md       # Unit test, responsive, and accessibility results
 ├── tests/
 │   ├── __init__.py
 │   ├── test_health.py           # Contract, CORS, and model status tests
@@ -67,7 +85,8 @@ ghostterminal-ai/
 │   ├── test_inference_unit.py   # Parameter validation, 422/503 shielding tests
 │   └── test_persona.py          # Simulated commands & injection ward tests
 ├── scripts/
-│   └── benchmark_and_eval.py    # Benchmark & evaluation runner
+│   ├── benchmark_and_eval.py    # Benchmark & evaluation runner
+│   └── capture_screenshots.py   # Headless Chrome automated UI capture runner
 ├── .env.example                 # Example configuration template
 ├── .gitignore                   # Comprehensive secret/weight/node_modules exclusion
 ├── LICENSE                      # MIT Open Source License
