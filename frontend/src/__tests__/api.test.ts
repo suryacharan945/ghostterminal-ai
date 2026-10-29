@@ -23,7 +23,7 @@ describe('Frontend API Client', () => {
         model_id: 'Qwen/Qwen2.5-0.5B-Instruct',
       };
 
-      global.fetch = vi.fn().mockResolvedValue({
+      globalThis.fetch = vi.fn().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockData,
@@ -31,11 +31,11 @@ describe('Frontend API Client', () => {
 
       const result = await fetchHealth();
       expect(result).toEqual(mockData);
-      expect(global.fetch).toHaveBeenCalledWith('/api/health', expect.any(Object));
+      expect(globalThis.fetch).toHaveBeenCalledWith('/api/health', expect.any(Object));
     });
 
     it('throws error when server responds with 500', async () => {
-      global.fetch = vi.fn().mockResolvedValue({
+      globalThis.fetch = vi.fn().mockResolvedValue({
         ok: false,
         status: 500,
         statusText: 'Internal Server Error',
@@ -46,7 +46,7 @@ describe('Frontend API Client', () => {
     });
 
     it('throws network error when fetch fails completely', async () => {
-      global.fetch = vi.fn().mockRejectedValue(new Error('Failed to fetch'));
+      globalThis.fetch = vi.fn().mockRejectedValue(new Error('Failed to fetch'));
 
       await expect(fetchHealth()).rejects.toThrow('Failed to fetch');
     });
@@ -63,7 +63,7 @@ describe('Frontend API Client', () => {
         total_inferences: 5,
       };
 
-      global.fetch = vi.fn().mockResolvedValue({
+      globalThis.fetch = vi.fn().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockData,
@@ -84,7 +84,7 @@ describe('Frontend API Client', () => {
         total_inferences: 0,
       };
 
-      global.fetch = vi.fn().mockResolvedValue({
+      globalThis.fetch = vi.fn().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockData,
@@ -105,7 +105,7 @@ describe('Frontend API Client', () => {
         tokens_generated: 42,
       };
 
-      global.fetch = vi.fn().mockResolvedValue({
+      globalThis.fetch = vi.fn().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockResponse,
@@ -131,7 +131,7 @@ describe('Frontend API Client', () => {
         tokens_generated: 0,
       };
 
-      global.fetch = vi.fn().mockResolvedValue({
+      globalThis.fetch = vi.fn().mockResolvedValue({
         ok: true,
         status: 200,
         json: async () => mockResponse,
@@ -144,7 +144,7 @@ describe('Frontend API Client', () => {
     });
 
     it('handles 503 Service Unavailable when model is not loaded', async () => {
-      global.fetch = vi.fn().mockResolvedValue({
+      globalThis.fetch = vi.fn().mockResolvedValue({
         ok: false,
         status: 503,
         statusText: 'Service Unavailable',
@@ -157,7 +157,7 @@ describe('Frontend API Client', () => {
     });
 
     it('handles 422 Unprocessable Entity for invalid prompt', async () => {
-      global.fetch = vi.fn().mockResolvedValue({
+      globalThis.fetch = vi.fn().mockResolvedValue({
         ok: false,
         status: 422,
         statusText: 'Unprocessable Entity',
